@@ -7,7 +7,7 @@ let songs;
 var listen2 = document.querySelectorAll(".cardContainer .card")
 
 async function getSongs() {
-    let url = await fetch("http://127.0.0.1:3000/songs/");
+    let url = await fetch("/songs/");
     let response = await url.text();
     let div = document.createElement("div");
     div.innerHTML = response; // Correct usage of innerHTML
@@ -191,7 +191,7 @@ async function main() {
         listen[index].style.backgroundColor = "#121212";
         listen[index].querySelector(".playNow>img").src = "playSong.svg";
 
-        console.log(listen2[index-1])
+        console.log(listen2[index - 1])
         listen2[index - 1].style.backgroundColor = "#2b2b2b"
         // listen[index-1].querySelector(".playNow>img").src = "pause.svg";
         listen2[index].style.backgroundColor = "#121212";
@@ -236,7 +236,7 @@ async function main() {
         currentSong.volume = parseInt(e.target.value) / 100
     })
 
-    
+
     for (let i = 0; i < listen2.length; i++) {
         listen2[i].addEventListener("click", () => {
             playMusic(listen[i].querySelector(".info>div").innerHTML, listen[i].querySelector(".artist").innerHTML)
@@ -256,6 +256,19 @@ async function main() {
         })
 
     }
+
+    document.getElementById("vol").addEventListener("click", () => {
+        if (document.getElementById("or").value > 0) {
+            document.querySelector(".volume img").src = "noVolume.svg"
+            document.getElementById("or").value = 0
+        }
+        else {
+            document.querySelector(".volume img").src = "volume.svg"
+            document.getElementById("or").value = 100
+        }
+    })
+
+
 
 }
 
