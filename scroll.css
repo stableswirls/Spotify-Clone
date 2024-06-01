@@ -1,0 +1,25 @@
+/* Track */
+::-webkit-scrollbar {
+    width: 10px; /* width of the scrollbar */
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #555; /* color of the scrollbar handle */
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #777; /* color of the scrollbar handle on hover */
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #333; /* color of the scrollbar track */
+  }
+  
+  /* Handle when dragging */
+  ::-webkit-scrollbar-thumb:active {
+    background: #999; /* color of the scrollbar handle when dragging */
+  }
+  
