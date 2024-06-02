@@ -7,7 +7,7 @@ let songs;
 var listen2 = document.querySelectorAll(".cardContainer .card")
 
 async function getSongs() {
-    let url = await fetch("/songs/");
+    let url = await fetch("songs/");
     let response = await url.text();
     let div = document.createElement("div");
     div.innerHTML = response; // Correct usage of innerHTML
@@ -17,7 +17,7 @@ async function getSongs() {
     for (let index = 0; index < as.length; index++) {
         const element = as[index];
         if (element.href.endsWith(".mp3")) {
-            songs.push(element.href.split("/songs/")[1]);
+            songs.push(element.href.split("songs/")[1]);
         }
     }
 
@@ -26,8 +26,8 @@ async function getSongs() {
 
 const playMusic = (song, artist) => {
     playing = true
-    // var audio = new Audio(`/songs/${song}${artist}.mp3`)
-    currentSong.src = `/songs/${song}${artist}.mp3`
+    // var audio = new Audio(`songs/${song}${artist}.mp3`)
+    currentSong.src = `songs/${song}${artist}.mp3`
     currentSong.play()
     play.src = "pause.svg"
 }
